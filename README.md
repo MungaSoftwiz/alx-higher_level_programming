@@ -6,19 +6,24 @@ Python is a powerful, high-level, and versatile programming language known
 for it's simplicity and readability. Python is used in web development, 
 data analytics, machine learning, scientific computing and more.
 
-#Getting Started
+## Getting Started
+
 Python is an interpreted language, so you don't need to compile your code 
 while running it. Here is a simple "Hello, World!" program in Python:
+
 	-print("Hello, World!")
 
 To run this program, you can use the Python interpreter:
+
 	-python hello.py
 
-#Installation
+## Installation
+
 Python is pre-installed on many operating systems, but you can download
 the latest version from the official website using this [link](https://www.python.org/downloads/)
 
 To check if Python is already installed, open your terminal and run:
+
 	-python --version
 
 ## Repository Structure
