@@ -30,7 +30,7 @@ To check if Python is already installed, open your terminal and run:
 
 Below is a list of directories of projects included:
 
-* [0X00.Python - Hello, World](0x00-python-hello_world)
+* [0x00.Python - Hello, World](0x00-python-hello_world)
 
 * [0x01.Python - if/else, loops, functions](0x01-python-if_else_loops_functions)
 
