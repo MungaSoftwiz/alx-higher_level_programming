@@ -32,6 +32,9 @@ Below is a list of directories of projects included:
 
 * [0X00.Python - Hello, World](0x00-python-hello_world)
 
+* [0x01.Python - if/else, loops, functions](0x01-python-if_else_loops_functions)
+
+
 ## Acknowledgements
 
 All work contained in this repository was completed as part of the software
