@@ -7,18 +7,19 @@ class Square:
 
     Attributes:
         __size (int): The private instance attribute
-
-    The __init__ method initialises the instances attribute
-
-    Args:
-        size (int): The size of the square
-
-    Raises:
-        TypeError: Raised if size is not an integer
-	ValueError: Raised if size is less than zero
     """
 
     def __init__(self, size=0):
+        """The __init__ method initialises instances attribute
+
+        Args:
+            size (int): The size of the square
+
+        Raises:
+            TypeError: Raised if size is not an integer
+            ValueError: Raised if size is less than zero
+        """
+
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
         elif size < 0:
