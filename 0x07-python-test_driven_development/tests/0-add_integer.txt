@@ -1,0 +1,108 @@
+# 0-add_integer.txt
+
+===========================
+How to use 0-add_integer.py
+===========================
+
+The module has one function that adds integers called ``add_integer()``
+
+Numbers
+=======
+
+``add_integer()`` returns the sum of it's arguments.
+
+::
+
+    >>> add_integer = __import__('0-add_integer').add_integer
+    >>> add_integer(15, 98)
+    113
+    >>> add_integer(0, 98)
+    98
+
+It works with floating point numbers
+
+::
+    >>> add_integer(15.62, 98)
+    113
+
+It works with negative numbers
+
+::
+    >>> add_integer(-15, 98)
+    83
+    >>>
+    >>> add_integer(-15, -98)
+    -113
+
+It works with large numbers
+
+::
+
+    >>> add_integer(89037252, 46758336)
+    135795588
+
+It works with one argument since 98 was a constant
+
+::
+
+    >>> add_integer(15,)
+    113
+
+It works with complex numbers
+
+::
+
+    >>> add_integer(3.2e50, 98)
+    319999999999999982876888623215417382299917273268322
+
+Non numbers
+===========
+
+The ``add_integer()`` function expexts either an int or a float.
+Providing any other type will raise an error.
+
+If we add a a non-int or a non-float, a TypeError is raised
+
+::
+
+    >>> add_integer("15",98)
+    Traceback (most recent call last):
+      ...
+    TypeError: a must be an integer
+
+::
+
+    >>> add_integer(15, "98")
+    Traceback (most recent call last):
+      ...
+    TypeError: b must be an integer
+
+::
+
+    >>> add_integer(None)
+    Traceback (most recent call last):
+      ...
+    TypeError: a must be an integer
+
+::
+
+    >>> add_integer()
+    Traceback (most recent call last):
+      ...
+    TypeError: add_integer() missing 1 required positional argument: 'a'
+
+It handles complex floating-point arithmetics exceptions
+
+::
+
+    >>> add_integer(15, float('nan'))
+    Traceback (most recent call last):
+      ...
+    ValueError: cannot convert float NaN to integer
+
+::
+
+    >>> add_integer(float('inf'), 98)
+    Traceback (most recent call last):
+      ...
+    OverflowError: cannot convert float infinity to integer
