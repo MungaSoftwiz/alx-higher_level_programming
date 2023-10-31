@@ -1,0 +1,93 @@
+# 2-matrix_divided.txt
+
+==============================
+How to use 2-matrix_divided.py
+==============================
+
+The module contains a function called ``matrix_divided()```
+
+Numbers
+=======
+
+The function returns a divided list
+
+::
+
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+    >>> matrix_divided([[2, 4, 6],[5, 8, 9]], 2)
+    [[1.0, 2.0, 3.0], [2.5, 4.0, 4.5]]
+
+It works for matrix with float values
+
+::
+
+    >>> matrix_divided([[2, 4, 6.4583],[5, 8, 9.122]], 2)
+    [[1.0, 2.0, 3.23], [2.5, 4.0, 4.56]]
+
+It works if the divisor is a float
+
+::
+
+    >>> matrix_divided([[2, 4, 6.4583],[5, 8, 9.122]], 2.3897)
+    [[0.84, 1.67, 2.7], [2.09, 3.35, 3.82]]
+
+Works with large divisor but answer 0.0 due to floating point
+arithmetic
+
+::
+
+    >>> matrix_divided([[4, 6, 7, 8],[5, 8, 12, 9]], 34774474)
+    [[0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0]]
+    >>> matrix_divided([[4, 6, 7, 8],[5, 8, 12, 9]], 3.3e+99)
+    [[0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0]]
+
+Number errors
+=============
+
+It raises a TypeError is one matrix is bigger than the other
+
+::
+
+    >>> matrix_divided([[2, 4, 6],[5, 8, 9, 3]], 2)
+    Traceback (most recent call last):
+      ...
+    TypeError: Each row of the matrix must have the same size
+
+It raises a ZeroDivisionError if we divide the matrix by zero
+
+::
+
+    >>> matrix_divided([[2, 4, 6],[5, 8, 9]], 0)
+    Traceback (most recent call last):
+      ...
+    ZeroDivisionError: division by zero
+
+Non-numbers
+===========
+
+It raises a TypeError if one of the matrix is a string
+
+::
+
+    >>> matrix_divided(["[2, 4, 6]",[5, 8, 9]], 2)
+    Traceback (most recent call last):
+      ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+It raises a TypeError if one of the matrix is a string and divided by zero
+
+::
+
+    >>> matrix_divided(["[2, 4, 6]",[5, 8, 9]], 0)
+    Traceback (most recent call last):
+      ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+It raises a TypeError if divisor is a string or non-int/float
+
+::
+
+    >>> matrix_divided([[2, 4, 6],[5, 8, 9]], "2")
+    Traceback (most recent call last):
+      ...
+    TypeError: div must be a number
