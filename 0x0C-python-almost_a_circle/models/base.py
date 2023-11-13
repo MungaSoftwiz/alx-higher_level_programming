@@ -77,10 +77,10 @@ class Base:
         Returns: An instance with all attributes
         """
         if cls.__name__ == "Rectangle":
-            dummy = cls(7, 11)
+            dummy = cls(7, 7)
         else:
             dummy = cls(7)
-        dummy.update(dictionary)
+        dummy.update(**dictionary)
         return dummy
 
     @classmethod
