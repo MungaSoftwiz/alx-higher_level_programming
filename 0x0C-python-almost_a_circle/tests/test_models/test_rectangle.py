@@ -61,6 +61,20 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             Rectangle(10, 5, 2, ['t', 'h', 'r', 'e', 'e'])
 
+    def test_set_x_y_non_integer(self):
+        """ Test non int values for setter methods x & y """
+        rect = Rectangle(10, 5)
+        with self.assertRaises(TypeError):
+            rect.x = 6.2
+            rect.y = 7.9
+
+    def test_set_x_y_negative_values(self):
+        """ Test negative values for setter methods x & y """
+        rect = Rectangle(10, 5)
+        with self.assertRaises(ValueError):
+            rect.x = -6
+            rect.x = -7
+
 
 class TestRectangleArea(unittest.TestCase):
     """ Test case for testing of the area method """
