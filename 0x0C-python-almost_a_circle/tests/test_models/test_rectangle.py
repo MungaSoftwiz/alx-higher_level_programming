@@ -111,3 +111,58 @@ class TestRectangleArea(unittest.TestCase):
 
         with self.assertRaises(TypeError):
             Rectangle(8, [7], 0, 0, 12).area()
+
+    def test_str(self):
+        """ Test for the __str__ method """
+        rect = Rectangle(6, 4, 3, 7, 12)
+        expected = "[Rectangle] (12) 3/7 - 6/4"
+        self.assertEqual(str(rect), expected)
+
+class TestRectangleUpdate(unittest.TestCase):
+    """ Tests the update method in Rectangle """
+    def test_update_with_valid_args(self):
+        rect = Rectangle(10, 5)
+
+        rect.update(77, 8, 7, 6, 2)
+        self.assertEqual(rect.id, 77)
+        self.assertEqual(rect.width, 8)
+        self.assertEqual(rect.height, 7)
+        self.assertEqual(rect.x, 6)
+        self.assertEqual(rect.y, 2)
+
+    def test_update_with_no_x_and_y(self):
+        rect = Rectangle(10, 5)
+        rect.update(23, 12)
+
+        self.assertEqual(rect.id, 23)
+        self.assertEqual(rect.width, 12)
+        self.assertEqual(rect.height, 5)
+        self.assertEqual(rect.x, 0)
+        self.assertEqual(rect.y, 0)
+
+    def test_update_with_no_args(self):
+        """ Test for an empty value call to update method """
+        rect = Rectangle(10, 5, 0, 0, 6)
+        rect.update()
+
+        self.assertEqual(rect.id, 6)
+        self.assertEqual(rect.width, 10)
+        self.assertEqual(rect.height, 5)
+        self.assertEqual(rect.x, 0)
+        self.assertEqual(rect.y, 0)
+
+    def test_update_with_kwargs(self):
+        """ Test for instance when kwargs are passed to update """
+        rect = Rectangle(10, 10, 10, 10)
+        rect.update(y=6, width=5, x=10, id=34)
+
+        self.assertEqual(rect.id, 34)
+        self.assertEqual(rect.width, 5)
+        self.assertEqual(rect.x, 10)
+        self.assertEqual(rect.y, 6)
+
+    def test_to_dictionary(self):
+        """ Test to dictionary function """
+        rect = Rectangle(3, 2, 3, 2, 7)
+        expected = {'id': 7, 'width': 3, 'height': 2, 'x': 3, 'y': 2}
+        self.assertEqual(rect.to_dictionary(), expected)
