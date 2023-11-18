@@ -166,3 +166,51 @@ class TestRectangleUpdate(unittest.TestCase):
         rect = Rectangle(3, 2, 3, 2, 7)
         expected = {'id': 7, 'width': 3, 'height': 2, 'x': 3, 'y': 2}
         self.assertEqual(rect.to_dictionary(), expected)
+
+class TestRectangleCreate(unittest.TestCase):
+    """Testing the create method """
+    def test_create_with_id(self):
+        """ Test create with id """
+        rect = Rectangle.create(**{'id': 89})
+        self.assertEqual(rect.id, 89)
+
+    def test_create_with_width(self):
+        """Test with width """
+        rect = Rectangle.create(**{'id': 89, 'width': 1})
+        self.assertEqual(rect.width, 1)
+        self.assertEqual(rect.id, 89)
+
+    def test_create_with_height(self):
+        """ Test with height """
+        rect = Rectangle.create(**{'id': 89, 'width': 1, 'height': 2})
+        self.assertEqual(rect.id, 89)
+        self.assertEqual(rect.width, 1)
+        self.assertEqual(rect.height, 2)
+
+    def test_create_with_x(self):
+        """ Test with x coordinate"""
+        rect = Rectangle.create(**{
+            'id': 89,
+            'width': 1,
+            'height': 2,
+            'x': 3
+        })
+        self.assertEqual(rect.id, 89)
+        self.assertEqual(rect.width, 1)
+        self.assertEqual(rect.height, 2)
+        self.assertEqual(rect.x, 3)
+
+    def test_create_with_y(self):
+        """ Test with y coordinate"""
+        rect = Rectangle.create(**{
+            'id': 89,
+            'width': 1,
+            'height': 2,
+            'x': 3,
+            'y': 4,
+        })
+        self.assertEqual(rect.id, 89)
+        self.assertEqual(rect.width, 1)
+        self.assertEqual(rect.height, 2)
+        self.assertEqual(rect.x, 3)
+        self.assertEqual(rect.y, 4)
