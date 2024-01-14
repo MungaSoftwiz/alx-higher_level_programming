@@ -1,0 +1,15 @@
+#!/usr/bin/python3
+""" Displays all values in the states table of the database hbtn_0e_0_usa """
+
+from sys import argv
+import MySQLdb
+
+if __name__ == "__main__":
+    db = MySQLdb.connect(host="localhost",
+                         port=3306,
+                         user=argv[1],
+                         passwd=argv[2],
+                         db=argv[3])
+    cur = db.cursor()
+    cur.execute("SELECT * FROM states WHERE name=%s ORDER BY id")
+    [print(state) for state in cur.fetchall() if state[1] == sys.argv[4]]
