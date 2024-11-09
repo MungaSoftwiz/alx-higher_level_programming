@@ -14,17 +14,8 @@ class Square:
 
         Args:
             size (int): The size of the square
-
-        Raises:
-            TypeError: Raised if size is not an integer
-            ValueError: Raised if size is less than zero
         """
-        if not isinstance(size, int):
-            raise TypeError("size must be an integer")
-        elif size < 0:
-            raise ValueError("size must be >= 0")
-        else:
-            self.__size = size
+        self.__size = size
 
     @property
     def size(self):
@@ -66,10 +57,8 @@ class Square:
 
     def my_print(self):
         """Method prints a square to the standard output
-
-        Args:
-            self.__size (int): the size of the square
         """
+
         if self.__size == 0:
             print()
         for row in range(self.__size):
