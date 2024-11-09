@@ -13,18 +13,9 @@ class Square:
         """The __init__ method initialises instances attribute
 
         Args:
-            size (int): The size of the square
-
-        Raises:
-            TypeError: Raised if size is not an integer
-            ValueError: Raised if size is less than zero
+            size (int): An optional size attribute
         """
-        if not isinstance(size, int):
-            raise TypeError("size must be an integer")
-        elif size < 0:
-            raise ValueError("size must be >= 0")
-        else:
-            self.__size = size
+        self.__size = size
 
     @property
     def size(self):
